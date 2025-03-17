@@ -23,19 +23,25 @@ func main() {
 		return
 	}
 
+	var r int = 0
+	var wordsAmount int = 0
 	for _, word := range strings.Split(string(content), " ") {
 		word = cleanWord(strings.ToLower(word))
 		if word == "" {
 			continue
 		}
+		wordsAmount++
 
 		if !isWordFrench(word) {
-			fmt.Printf("The text is not french because \"%s\" is not in the french dictionnary.", word)
-			return
+			r++
 		}
 	}
-
-	fmt.Println("The text is 100% french.")
+	
+	if r == 0 {
+		fmt.Println("The text is 100% french.")
+	} else {
+		fmt.Printf("The text is %.2f%% french.", (float64(wordsAmount-r)/float64(wordsAmount))*100)
+	}
 }
 
 func isWordFrench(word string) bool {
