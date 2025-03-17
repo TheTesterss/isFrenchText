@@ -23,7 +23,7 @@ func main() {
 		return
 	}
 
-	var testedWords map[string]bool
+	var testedWords map[string]bool = map[string]bool{}
 	var r int = 0
 	var wordsAmount int = 0
 	for _, word := range strings.Split(string(content), " ") {
@@ -41,9 +41,11 @@ func main() {
 			continue
 		}
 
-		if !isWordFrench(word) {
+		result := isWordFrench(word)
+		if !result {
 			r++
 		}
+		testedWords[word] = result		
 	}
 	
 	if r == 0 {
