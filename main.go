@@ -23,6 +23,7 @@ func main() {
 		return
 	}
 
+	var testedWords map[string]bool
 	var r int = 0
 	var wordsAmount int = 0
 	for _, word := range strings.Split(string(content), " ") {
@@ -31,6 +32,14 @@ func main() {
 			continue
 		}
 		wordsAmount++
+
+		value, exists := testedWords[word]
+		if exists {
+			if !value {
+				r++
+			}
+			continue
+		}
 
 		if !isWordFrench(word) {
 			r++
