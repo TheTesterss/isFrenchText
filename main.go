@@ -47,9 +47,10 @@ func main() {
 		}
 		testedWords[word] = result		
 	}
-	
-	if r == 0 {
-		fmt.Println("The text is 100% french.")
+
+	// Avoids the zero division error.
+	if wordsAmount == 0 {
+		fmt.Println("The text doesn't include word.")
 	} else {
 		fmt.Printf("The text is %.2f%% french.", (float64(wordsAmount-r)/float64(wordsAmount))*100)
 	}
