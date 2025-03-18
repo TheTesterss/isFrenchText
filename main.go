@@ -10,7 +10,7 @@ import (
 
 var chars []string = []string{
 	"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-	"é", "è", "ç", "ê", "à", "â", "ë", "ä",
+	"é", "è", "ç", "ê", "à", "â", "ë", "ä", "ï", "ô", "î", "ö"
 }
 var path string = "./content.txt"
 var larousseApiPath string = "https://larousse.fr/dictionnaires/francais"
